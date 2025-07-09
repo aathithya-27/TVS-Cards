@@ -1,0 +1,268 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Amperzand';
+  src: url('/Amperzand.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Amperzand-style font implementation using elegant serif fonts with decorative characteristics */
+.amperzand-font {
+  font-family: 'Amperzand', "Baskerville", "Libre Baskerville", "Times New Roman", "Book Antiqua", "Georgia", "Garamond", serif;
+  font-feature-settings: "liga" 1, "dlig" 1, "kern" 1;
+  text-rendering: optimizeLegibility;
+  letter-spacing: 0.02em;
+}
+
+/* Enhanced Amperzand-style decorative font for ribbon text */
+.amperzand-decorative {
+  font-family: 'Amperzand', "Libre Baskerville", "Playfair Display", "EB Garamond", "Crimson Text", "Times New Roman", "Book Antiqua",
+    "Georgia", serif;
+  font-feature-settings: "liga" 1, "dlig" 1, "kern" 1, "swsh" 1;
+  text-rendering: optimizeLegibility;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Special styling for ampersands in decorative text */ 
+.amperzand-decorative:contains("&") {
+  font-style: italic;
+  font-size: 1.15em;
+  color: #8B4513;
+}
+
+/* Enhanced ampersand styling */
+.amperzand-font .ampersand,
+
+.amperzand-font span:contains("&") {
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.1em;
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-30px) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+@keyframes sparkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(180deg);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: translateX(-100px);
+  }
+  50% {
+    transform: translateX(100px);
+  }
+}
+
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(30px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(30px) rotate(-360deg);
+  }
+}
+
+@keyframes gallop {
+  0%,
+  100% {
+    transform: translateX(0) scaleX(1);
+  }
+  25% {
+    transform: translateX(2px) scaleX(1.1);
+  }
+  50% {
+    transform: translateX(0) scaleX(1);
+  }
+  75% {
+    transform: translateX(-2px) scaleX(1.1);
+  }
+}
+
+@keyframes shimmer-enhanced {
+  0%,
+  100% {
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5), 0 0 10px rgba(255, 215, 0, 0.3), 0 0 15px rgba(255, 215, 0, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.9), 0 0 30px rgba(255, 215, 0, 0.7), 0 0 40px rgba(255, 215, 0, 0.5), 0 0
+      50px rgba(255, 215, 0, 0.3);
+  }
+}
+
+@keyframes glow-enhanced {
+  0%,
+  100% {
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6), 0 0 30px rgba(255, 215, 0, 0.4), 0 0 45px rgba(255, 215, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.9), 0 0 50px rgba(255, 215, 0, 0.7), 0 0 70px rgba(255, 215, 0, 0.5), 0 0
+      90px rgba(255, 215, 0, 0.3);
+  }
+}
+
+@keyframes ribbon-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 7px rgba(255, 215, 0, 0.4)) drop-shadow(0 0 14px rgba(255, 215, 0, 0.22)) drop-shadow(0 0 20px rgba(255, 215, 0, 0.12));
+  }
+  50% {
+    filter: drop-shadow(0 0 14px rgba(255, 215, 0, 0.65)) drop-shadow(0 0 28px rgba(255, 215, 0, 0.33)) drop-shadow(0 0 36px rgba(255, 215, 0, 0.18));
+  }
+}
+
+@keyframes glow-text {
+  0%,
+  100% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.6);
+  }
+}
+
+@keyframes text-glow {
+  0%,
+  100% {
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8), 0 0 10px rgba(255, 215, 0, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 1), 0 0 15px rgba(255, 215, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.3);
+  }
+}
+
+@keyframes bounce-horizontal {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(8px);
+  }
+}
+
+@keyframes bounce-rotate {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(-15px) rotate(20deg) scale(1.1);
+  }
+}
+
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes subtle-zoom {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes subtle-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+@keyframes medal-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(20px);
+  }
+  40% {
+    transform: translateY(0);
+  }
+  60% {
+    transform: translateY(10px);
+  }
+  80% {
+    transform: translateY(0);
+  }
+}
+
+.animate-medal-bounce {
+  animation: medal-bounce 2s infinite;
+}
