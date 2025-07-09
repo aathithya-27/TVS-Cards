@@ -7,10 +7,10 @@ import { useRef } from "react"
 export default function TVSCertificateGenerator() {
   const [formData, setFormData] = useState({
     name: "Aathithya",
-    position: "Technical Head",
+    position: "Junior Developer",
     month: "June",
     year: "2025",
-    photo: "/images/IMG_3128.jpg",
+    photo: "/images/Aathithya.jpg",
   })
   const [prevPhoto, setPrevPhoto] = useState(formData.photo)
   const fileInputRef = useRef(null)
