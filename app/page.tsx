@@ -396,8 +396,8 @@ export default function TVSCertificateGenerator() {
               height={50}
               className="object-contain w-30 h-30 -mt-16 align-bottom"
             />
-            <span className="text-white text-3xl  amperzand-font">A</span>
-            <span className="text-white text-3xl  amperzand-font">
+            <span className="text-white text-3xl" style={{ fontFamily: 'Trebuchet MS, Arial, sans-serif' }}>A</span>
+            <span className="text-white text-3xl" style={{ fontFamily: 'Trebuchet MS, Arial, sans-serif' }}>
               MACS'ian Product
             </span>
           </div>
