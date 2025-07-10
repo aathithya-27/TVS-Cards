@@ -390,7 +390,7 @@ export default function TVSCertificateGenerator() {
           {/* MACS Logo and Tagline - Bottom Right Overlay */}
           <div className="absolute bottom-0 right-0 mb-4 mr-4 flex flex-row items-end justify-end gap-2 z-30">
             <Image
-              src="/macs_logo.png"
+              src="/images/macs_logo.png"
               alt="MACS Logo"
               width={50}
               height={50}
