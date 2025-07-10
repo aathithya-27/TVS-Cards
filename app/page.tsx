@@ -5,11 +5,11 @@ import Image from "next/image"
 
 export default function TVSCertificateGenerator() {
   const [formData, setFormData] = useState({
-    name: "Aathithya",
-    position: "Technical Head",
+    name: "Sridhar K.R",
+    position: "Support Executive",
     month: "June",
     year: "2025",
-    photo: "/images/Aathithya.jpg",
+    photo: "/images/sridhar.jpg",
   })
   const [prevPhoto, setPrevPhoto] = useState(formData.photo)
   const fileInputRef = useRef(null)
@@ -365,7 +365,7 @@ export default function TVSCertificateGenerator() {
                       <h4 className="text-black text-3xl font-extrabold amperzand-decorative mb-0">
                         {formData.name}
                       </h4>
-                      <p className="text-black text-2xl font-bold amperzand-decorative mt-0">
+                      <p className="text-black text-3xl font-bold amperzand-decorative mt-0">
                         {formData.position}
                       </p>
                     </div>
