@@ -396,8 +396,8 @@ export default function TVSCertificateGenerator() {
               height={50}
               className="object-contain w-30 h-30 -mt-16 align-bottom"
             />
-            <span className="text-white text-3xl font-bold amperzand-font">A</span>
-            <span className="text-white text-3xl font-bold amperzand-font">
+            <span className="text-white text-3xl  amperzand-font">A</span>
+            <span className="text-white text-3xl  amperzand-font">
               MACS'ian Product
             </span>
           </div>
