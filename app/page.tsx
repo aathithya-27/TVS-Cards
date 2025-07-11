@@ -19,6 +19,10 @@ export default function TVSCertificateGenerator() {
   const [confetti, setConfetti] = useState<any[]>([])
   const [fitMode, setFitMode] = useState<'cover' | 'contain'>('cover')
   const [profileBg, setProfileBg] = useState<string>("#fff")
+
+  // Animation state: 0 = initial (left to right to center), 1 = pause, 2 = second sequence (center to left to right to center), 3 = pause before restart
+  const [animationPhase, setAnimationPhase] = useState(0)
+
   useEffect(() => {
     setIsClient(true)
     // Sparkles
@@ -172,19 +176,78 @@ export default function TVSCertificateGenerator() {
     }
   }, [scale, formData.photo]);
 
+  // Animation timing constants
+  const moveDuration = 12000; // 12 seconds for each move (slowed down more)
+  const pauseDuration = 2000; // 2 seconds pause between moves
+  const twoMinutes = 120000; // 2 minutes in ms
+
+  // Effect to control animation phases
+  useEffect(() => {
+    let timeout1: NodeJS.Timeout;
+    let timeout2: NodeJS.Timeout;
+    let timeout3: NodeJS.Timeout;
+
+    if (animationPhase === 0) {
+      // Phase 0: left to right, right to center, then stop (pause)
+      timeout1 = setTimeout(() => setAnimationPhase(1), moveDuration * 2 + pauseDuration);
+    } else if (animationPhase === 1) {
+      // Phase 1: pause for 2 minutes, then start phase 2
+      timeout2 = setTimeout(() => setAnimationPhase(2), twoMinutes);
+    } else if (animationPhase === 2) {
+      // Phase 2: center to left, left to right, right to center, then restart phase 0
+      timeout3 = setTimeout(() => setAnimationPhase(0), moveDuration * 3 + pauseDuration);
+    }
+
+    return () => {
+      clearTimeout(timeout1);
+      clearTimeout(timeout2);
+      clearTimeout(timeout3);
+    }
+  }, [animationPhase]);
+
+  // Determine animation class based on phase
+  let animationClass = "";
+  if (animationPhase === 0) {
+    animationClass = "anim-left-to-right-to-center";
+  } else if (animationPhase === 2) {
+    animationClass = "anim-center-to-left-to-right-to-center";
+  } else {
+    animationClass = ""; // no animation during pause or stop
+  }
+
   return (
     <>
       <style>{noScrollStyle}</style>
       <style>{mobileStyle}</style>
+      <style>{`
+        @keyframes left-to-right-to-center {
+      0% { transform: translateX(-40vw); }
+      50% { transform: translateX(40vw); }
+      100% { transform: translateX(0); }
+        }
+
+        @keyframes center-to-left-to-right-to-center {
+      0% { transform: translateX(0); }
+      33% { transform: translateX(-40vw); }
+      66% { transform: translateX(40vw); }
+      100% { transform: translateX(0); }
+        }
+
+        .anim-left-to-right-to-center {
+          animation: left-to-right-to-center ${moveDuration * 2}ms ease-in-out forwards;
+        }
+        .anim-center-to-left-to-right-to-center {
+          animation: center-to-left-to-right-to-center ${moveDuration * 3}ms ease-in-out forwards;
+        }
+      `}</style>
       <div style={{ minHeight: '100vh', background: 'black', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
         <div
           ref={cardRef}
-          className="responsive-card"
+          className={`responsive-card ${animationClass}`}
           style={{
             minWidth: 480,
             maxWidth: 740,
             width: '100%',
-            transform: `scale(${scale})`,
             transformOrigin: 'center top',
             position: 'relative',
             display: 'flex',
@@ -193,6 +256,7 @@ export default function TVSCertificateGenerator() {
             justifyContent: 'center',
             background: 'none',
             overflow: 'hidden',
+            scale: scale,
           }}
         >
           <div
@@ -406,10 +470,3 @@ export default function TVSCertificateGenerator() {
     </>
   )
 }
-/* Add confetti animation to global styles if not present */
-// In your globals.css or in a <style jsx global> block:
-// @keyframes confetti-fall {
-//   0% { transform: translateY(-20px) rotate(var(--rotate, 0deg)); opacity: 1; }
-//   100% { transform: translateY(400px) rotate(var(--rotate, 0deg)); opacity: 0.7; }
-// }
-
