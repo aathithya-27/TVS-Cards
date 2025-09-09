@@ -5,11 +5,11 @@ import Image from "next/image"
 
 export default function TVSCertificateGenerator() {
   const [formData, setFormData] = useState({
-    name: "Sridhar K.R",
+    name: "Nithin",
     position: "Support Executive",
-    month: "June",
+    month: "September",
     year: "2025",
-    photo: "/images/sridhar.jpg",
+    photo: "/images/Nihin.jpg",
   })
   const [prevPhoto, setPrevPhoto] = useState(formData.photo)
   const fileInputRef = useRef(null)
