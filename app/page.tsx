@@ -7,7 +7,7 @@ export default function TVSCertificateGenerator() {
   const [formData, setFormData] = useState({
     name: "Nithin",
     position: "Support Executive",
-    month: "September",
+    month: "August",
     year: "2025",
   photo: "/images/Nithin.jpg",
   })
