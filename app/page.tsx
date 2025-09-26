@@ -179,7 +179,7 @@ export default function TVSCertificateGenerator() {
   // Animation timing constants
   const moveDuration = 12000; // 12 seconds for each move (slowed down more)
   const pauseDuration = 2000; // 2 seconds pause between moves
-  const twoMinutes = 120000; // 2 minutes in ms
+  const twoMinutes = 12000; // 2 minutes in ms
 
   // Effect to control animation phases
   useEffect(() => {
