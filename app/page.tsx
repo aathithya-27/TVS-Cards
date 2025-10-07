@@ -4,11 +4,10 @@ import { useState, useEffect, useLayoutEffect, useRef } from "react"
 
 export default function TVSCertificateGenerator() {
   const [formData, setFormData] = useState({
-    name: "Nithin",
-    position: "Support Executive",
-    month: "August",
+    name: "Mohammad Absar.M",
+    month: "September",
     year: "2025",
-    photo: "/images/Nithin.jpg",
+    photo: "/images/absar.jpg",
   })
   const [prevPhoto, setPrevPhoto] = useState(formData.photo)
   const fileInputRef = useRef(null)
@@ -373,10 +372,9 @@ export default function TVSCertificateGenerator() {
                       height={100}
                       className="w-full h-full object-contain absolute inset-0"
                     />
-                    <div className="absolute inset-x-0 top-2 flex flex-col items-center justify-start px-4">
-                      <div className="text-center flex flex-col justify-start h-full">
-                        <h4 className="text-black text-3xl font-extrabold amperzand-decorative mb-0">{formData.name}</h4>
-                        <p className="text-black text-3xl font-bold amperzand-decorative mt-0">{formData.position}</p>
+                    <div className="absolute inset-0 flex items-center justify-center px-4">
+                      <div className="text-center">
+                        <h4 className="text-black text-3xl font-extrabold amperzand-decorative">{formData.name}</h4>
                       </div>
                     </div>
                   </div>
@@ -408,4 +406,3 @@ export default function TVSCertificateGenerator() {
     </>
   )
 }
-
