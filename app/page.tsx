@@ -4,8 +4,8 @@ import { useState, useEffect, useLayoutEffect, useRef } from "react"
 
 export default function TVSCertificateGenerator() {
   const [formData, setFormData] = useState({
-    name: "Mohamed Absar.M",
-    month: "September",
+    name: "Santhosh P",
+    month: "October",
     year: "2025",
     photo: "/images/absar.jpg",
   })
