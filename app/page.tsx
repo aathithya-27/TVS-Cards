@@ -7,7 +7,7 @@ export default function TVSCertificateGenerator() {
     name: "Santhosh P",
     month: "October",
     year: "2025",
-    photo: "/images/absar.jpg",
+    photo: "/images/santhosh.jpg",
   })
   const [prevPhoto, setPrevPhoto] = useState(formData.photo)
   const fileInputRef = useRef(null)
