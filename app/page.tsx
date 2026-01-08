@@ -4,10 +4,10 @@ import { useState, useEffect, useLayoutEffect, useRef } from "react"
 
 export default function TVSCertificateGenerator() {
   const [formData, setFormData] = useState({
-    name: "Mohamed Absar.M",
-    month: "November",
+    name: "Prema.C",
+    month: "December",
     year: "2025",
-    photo: "/images/absar.jpg",
+    photo: "/images/prema.jpg",
   })
   const [prevPhoto, setPrevPhoto] = useState(formData.photo)
   const fileInputRef = useRef(null)
